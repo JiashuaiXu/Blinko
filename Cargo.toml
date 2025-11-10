@@ -1,0 +1,50 @@
+[package]
+name = "blinko"
+version = "0.1.0"
+edition = "2021"
+authors = ["Blinko Team"]
+description = "A simple, lightweight Windows desktop health reminder tool"
+license = "MIT"
+
+[dependencies]
+# Windows API
+windows = { version = "0.58", features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Threading",
+] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Image processing
+opencv = { version = "0.90", default-features = false, features = ["imgproc", "imgcodecs", "videoio", "objdetect"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+
+# Database
+rusqlite = { version = "0.31", features = ["bundled"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Time
+chrono = "0.4"
+
+# Directories
+dirs = "5.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
