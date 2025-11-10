@@ -4,6 +4,11 @@ target/
 dist/
 build/
 
+# Rust
+Cargo.lock
+target/
+**/*.rs.bk
+
 # Logs
 *.log
 npm-debug.log*
